@@ -25,8 +25,6 @@ namespace XNAmusic
             InitializeComponent();
             ml = new MediaLibrary();
             
-            AppName.Text = "XNAmusic";
-            ContentTextBlock.Text = "Artist in Library";
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
