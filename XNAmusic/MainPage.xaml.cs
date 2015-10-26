@@ -35,6 +35,10 @@ namespace XNAmusic
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
             PopulateList();
+            if(MediaPlayer.State == MediaState.Playing)
+            {
+                NavigationService.Navigate(new Uri(string.Format("/PlaySongs.xaml?Album={0}&Song={1}", MediaPlayer.Queue.ActiveSong.Album.Name, MediaPlayer.Queue.ActiveSong.Name), UriKind.Relative));
+            }
         }
 
         private void PopulateList()

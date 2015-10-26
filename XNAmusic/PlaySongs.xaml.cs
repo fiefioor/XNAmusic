@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Xna.Framework.Media;
+using System.Windows.Threading;
 
 namespace XNAmusic
 {
@@ -18,6 +19,7 @@ namespace XNAmusic
         Album CurrentAlbum = null;
         Song currentSong = null;
         int song_num = 0;
+        DispatcherTimer playTimer;
         public PlaySongs()
         {
             InitializeComponent();
@@ -40,7 +42,26 @@ namespace XNAmusic
                     }
                 }
             }
+            String song_name = null;
+            if (NavigationContext.QueryString.TryGetValue("Song", out song_name))
+            {
+                foreach(Song s in CurrentAlbum.Songs)
+                {
+                    if (s.Name == song_name) currentSong = s;
+                    changePlayButtonStatus();
+                    changeSongName();
+                    changeProgressBar();
+                }
+            }
+
+            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
         }
+
+     /*   private void MediaPlayer_MediaStateChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }*/
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
@@ -73,9 +94,10 @@ namespace XNAmusic
             {
                 if (currentSong != null)
                 {
-                    MediaPlayer.Play(CurrentAlbum.Songs, song_num);
                     changePlayButtonStatus();
                     changeSongName();
+                    if (MediaPlayer.State == MediaState.Stopped) MediaPlayer.Play(CurrentAlbum.Songs, song_num);
+                    else MediaPlayer.Resume();
                 }
             }
         }
@@ -93,6 +115,7 @@ namespace XNAmusic
                     MediaPlayer.Play(CurrentAlbum.Songs, song_num);
                     changePlayButtonStatus();
                     changeSongName();
+                    changeProgressBar();
                 }
             }
         }
@@ -111,8 +134,24 @@ namespace XNAmusic
 
         private void changeSongName()
         {
-            if (currentSong != null) SongName.Text = currentSong.Name;
-            else SongName.Text = "";
+            if (currentSong != null)
+            {
+                SongName.Text = currentSong.Name; try
+                {
+                    EndTime.Text = String.Format(@"{0:mm\:ss}",
+                                           currentSong.Duration).Remove(8);
+                }
+                catch
+                {
+                    EndTime.Text = String.Format(@"{0:mm\:ss}",
+                                           currentSong.Duration);
+                }
+            }
+            else
+            {
+                SongName.Text = "";
+                EndTime.Text = "00:00";
+            }
         }
 
         private void changeProgressBar()
@@ -120,6 +159,29 @@ namespace XNAmusic
             if (currentSong != null)
             {
                 SongProgress.Maximum = currentSong.Duration.TotalSeconds;
+                playTimer = new DispatcherTimer();
+                playTimer.Interval = TimeSpan.FromMilliseconds(1000); //one second
+                playTimer.Tick += new EventHandler(playTimer_Tick);
+                playTimer.Start();
+            }
+        }
+
+        public void playTimer_Tick(object sender, EventArgs e)
+        {
+            if (MediaPlayer.State == MediaState.Playing)
+            {
+                SongProgress.Value = MediaPlayer.PlayPosition.TotalSeconds;
+                try
+                {
+                    CurrentTime.Text = String.Format(@"{0:mm\:ss}",
+                                       MediaPlayer.PlayPosition).Remove(8);
+
+                }
+                catch
+                {
+                    CurrentTime.Text = String.Format(@"{0:mm\:ss}",
+                                       MediaPlayer.PlayPosition);
+                }
             }
         }
     }

@@ -12,7 +12,6 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
-
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
@@ -26,15 +25,27 @@
             <TextBlock x:Name="AlbumName" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="SongName" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
             <Grid>
-                <ProgressBar x:Name="SongProgress" />
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ProgressBar x:Name="SongProgress" Grid.Row="0" Margin="20" />
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                   <TextBlock x:Name="CurrentTime" Grid.Column="0"/>
+                    <TextBlock x:Name="EndTime" Grid.Column="1"/>
+                </Grid>
             </Grid>
         </StackPanel>
 
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Width="420" Margin="18,40,18,0" VerticalAlignment="Top">
-            <Button Content="prev" x:Name="prevButton" Height="140" Width="140" Click="prevButton_Click"/>
-            <Button Content="play" x:Name="playButton" Height="140" Width="140" Click="playButton_Click"/>
-            <Button Content="next" x:Name="nextButton" Height="140" Width="140" Click="nextButton_Click"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Width="420" Margin="18,10,18,0" VerticalAlignment="Top">
+            <Button Content="prev" x:Name="prevButton" Height="100" Width="140" Click="prevButton_Click"/>
+            <Button Content="play" x:Name="playButton" Height="100" Width="140" Click="playButton_Click"/>
+            <Button Content="next" x:Name="nextButton" Height="100" Width="140" Click="nextButton_Click"/>
         </StackPanel>
         
         <!--ContentPanel - place additional content here-->
