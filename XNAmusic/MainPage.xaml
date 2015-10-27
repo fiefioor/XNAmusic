@@ -19,7 +19,9 @@
             <!--Panorama item one-->
             <phone:PanoramaItem Header="Artists">
                 <Grid>
-                    <ListBox x:Name="ArtistsList" SelectionChanged="ArtistsList_SelectionChanged" />
+                    <ListBox x:Name="ArtistsList" 
+                             SelectionChanged="ArtistsList_SelectionChanged" 
+                             FontSize="{StaticResource PhoneFontSizeLarge}" />
                 </Grid>
             </phone:PanoramaItem>
 
@@ -40,5 +42,10 @@
 
         </phone:Panorama>
     </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBarIcons/question.png" Text="About" Click="ApplicationBarIconButton_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>

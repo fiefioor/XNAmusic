@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Windows.Storage;
+using Coding4Fun.Toolkit.Controls;
 
 namespace XNAmusic
 {
@@ -56,20 +57,10 @@ namespace XNAmusic
             }
         }
 
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
-
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
+        private void ApplicationBarIconButton_Click(object sender, EventArgs e)
+        {
+            AboutPrompt aboutMe = new AboutPrompt();
+            aboutMe.Show("Michal Warkoczynski", null, "mjwarkoczynski@wi.zut.edu.pl", "http://wi.zut.edu.pl");
+        }
     }
 }
