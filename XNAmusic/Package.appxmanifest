@@ -35,6 +35,7 @@
     <Capability Name="picturesLibrary" />
     <Capability Name="internetClientServer" />
     <Capability Name="videosLibrary" />
+    <DeviceCapability Name="location" />
   </Capabilities>
   <Extensions>
     <Extension Category="windows.activatableClass.inProcessServer">

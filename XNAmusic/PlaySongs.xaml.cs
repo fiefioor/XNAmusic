@@ -136,7 +136,8 @@ namespace XNAmusic
         {
             if (currentSong != null)
             {
-                SongName.Text = currentSong.Name; try
+                SongName.Text = MediaPlayer.Queue.ActiveSong.Name;
+                try
                 {
                     EndTime.Text = String.Format(@"{0:mm\:ss}",
                                            currentSong.Duration).Remove(8);

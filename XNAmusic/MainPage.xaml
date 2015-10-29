@@ -6,6 +6,8 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:map="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    xmlns:maptoolkit="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -27,7 +29,32 @@
 
             <!--Panorama item two-->
             <phone:PanoramaItem Header="Pictures">
-                <Grid/>
+                <Grid>
+                    <phone:LongListSelector x:Name="GallerySelector" ItemsSource="{Binding galleries}"
+                                    LayoutMode="List"
+                                    SelectionChanged="GallerySelector_SelectionChanged">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                          <!--   <Grid Background="Gray"
+                                      Margin="3,3,3,3">
+                                    <Image Source="{Binding Art}" />
+                                    <StackPanel HorizontalAlignment="Right">
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </StackPanel>
+                                </Grid>-->
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Art}"  Height="75" Margin="0,0,10,0"/>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name, StringFormat='City: {0}'}" FontSize="26" />
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+
+                </Grid>
             </phone:PanoramaItem>
 
             <!--Panorama item three-->
@@ -37,7 +64,11 @@
 
             <!--Panorama item four-->
             <phone:PanoramaItem Header="Gigs around">
-                <Grid/>
+                <Grid>
+                    <map:Map x:Name="Map" Visibility="Visible" ResolveCompleted="OnResolveCompleted">
+                        
+                    </map:Map>
+                </Grid>
             </phone:PanoramaItem>
 
         </phone:Panorama>

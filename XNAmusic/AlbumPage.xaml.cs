@@ -46,14 +46,29 @@ namespace XNAmusic
 
         private void AlbumSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.AddedItems.Count > 0)
+            /* if (e.AddedItems.Count > 0)
+             {
+                 var selecedItem = e.AddedItems[0] as Album;
+                 if (null != selecedItem) // prevents errors if casting fails
+                 {
+                     NavigationService.Navigate(new Uri(string.Format("/PlaySongs.xaml?Album={0}", selecedItem.Name), UriKind.Relative));
+                 }
+             }*/
+            AlbumModel tmp = null;
+            if (AlbumSelector.SelectedItem == null) return;
+            try
             {
-                var selecedItem = e.AddedItems[0] as Album;
-                if (null != selecedItem) // prevents errors if casting fails
-                {
-                    NavigationService.Navigate(new Uri(string.Format("/PlaySongs.xaml?Album={0}", selecedItem.Name), UriKind.Relative));
-                }
+                tmp = (AlbumModel)AlbumSelector.SelectedItem;
+                NavigationService.Navigate(new Uri(string.Format("/PlaySongs.xaml?Album={0}", tmp.Name), UriKind.Relative));
             }
+            catch (Exception e1)
+            {
+
+                MessageBox.Show(e1.ToString());
+            }
+
+            
+
         }
     }
 }

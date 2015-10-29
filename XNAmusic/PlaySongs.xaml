@@ -41,7 +41,6 @@
             </Grid>
         </StackPanel>
 
-
         <StackPanel Grid.Row="1" Orientation="Horizontal" Width="420" Margin="18,10,18,0" VerticalAlignment="Top">
             <Button Content="prev" x:Name="prevButton" Height="100" Width="140" Click="prevButton_Click"/>
             <Button Content="play" x:Name="playButton" Height="100" Width="140" Click="playButton_Click"/>
@@ -50,7 +49,9 @@
         
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="2" Margin="12,0,12,0">
-            <ListBox x:Name="SongsList" SelectionChanged="SongsList_SelectionChanged" />
+            <ListBox x:Name="SongsList" SelectionChanged="SongsList_SelectionChanged"
+                     FontSize="{StaticResource PhoneFontSizeMedium}"/>
+            
         </Grid>
 
         
