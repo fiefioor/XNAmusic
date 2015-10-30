@@ -73,18 +73,23 @@ namespace XNAmusic
         }
 
         private void populateGalleryList()
-        {
-            foreach (var item in ml.RootPictureAlbum.Albums)
+        {       
+            if (gm.Count == 0)
             {
-                try
+                Random rnd = new Random();
+                foreach (var item in ml.RootPictureAlbum.Albums)
                 {
-                    gm.Add(new GalleryModel(item.Name, item.Pictures[0].GetThumbnail()));
+                    try
+                    {
+                        gm.Add(new GalleryModel(item.Name, item.Pictures[rnd.Next(item.Pictures.Count)].GetThumbnail()));
+                    }
+                    catch
+                    {
+                    }
+
                 }
-                catch
-                {
-                }
-                
             }
+           
             GallerySelector.ItemsSource = gm;
         }
 
@@ -131,7 +136,18 @@ namespace XNAmusic
 
         private void GallerySelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            GalleryModel tmp = null;
+            if (GallerySelector.SelectedItem == null) return;
+            try
+            {
+                tmp = (GalleryModel)GallerySelector.SelectedItem;
+                NavigationService.Navigate(new Uri(string.Format("/GalleryPage.xaml?Album={0}", tmp.Name), UriKind.Relative));
+            }
+            catch (Exception e1)
+            {
 
+                MessageBox.Show(e1.ToString());
+            }
         }
     }
 }

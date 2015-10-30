@@ -185,5 +185,14 @@ namespace XNAmusic
                 }
             }
         }
+
+        private void SongProgress_ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e)
+        {
+            if(MediaPlayer.State == MediaState.Playing)
+            {
+                TimeSpan ts = new TimeSpan(0, 0, (int)SongProgress.Value);
+                MediaPlayer.PlayPosition.Add(ts);
+            }
+        }
     }
 }

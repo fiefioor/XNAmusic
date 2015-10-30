@@ -97,6 +97,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GalleryPage.xaml.cs">
+      <DependentUpon>GalleryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -104,6 +107,7 @@
     <Compile Include="MapHelpers\CoordinateConverter.cs" />
     <Compile Include="Models\AlbumModel.cs" />
     <Compile Include="Models\GalleryModel.cs" />
+    <Compile Include="Models\PictureModel.cs" />
     <Compile Include="PlaySongs.xaml.cs">
       <DependentUpon>PlaySongs.xaml</DependentUpon>
     </Compile>
@@ -121,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="AlbumPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GalleryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

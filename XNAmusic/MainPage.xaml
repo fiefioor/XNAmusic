@@ -44,9 +44,9 @@
                                 </Grid>-->
 
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding Art}"  Height="75" Margin="0,0,10,0"/>
+                                    <Image Source="{Binding Art}"  Height="100" Margin="0,0,10,0"/>
                                     <StackPanel>
-                                        <TextBlock Text="{Binding Name, StringFormat='City: {0}'}" FontSize="26" />
+                                        <TextBlock Text="{Binding Name, StringFormat='Gallery: {0}'}" FontSize="26" />
                                     </StackPanel>
                                 </StackPanel>
 

@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:c4f="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls" 
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -29,14 +30,14 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <ProgressBar x:Name="SongProgress" Grid.Row="0" Margin="20" />
+                <c4f:SuperSlider x:Name="SongProgress" Grid.Row="0" Margin="20,0,20,0" ManipulationCompleted="SongProgress_ManipulationCompleted" />
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                   <TextBlock x:Name="CurrentTime" Grid.Column="0"/>
-                    <TextBlock x:Name="EndTime" Grid.Column="1"/>
+                   <TextBlock x:Name="CurrentTime" Grid.Column="0" Margin="5,0,0,0" />
+                    <TextBlock x:Name="EndTime" Grid.Column="1" Margin="0,0,5,0"/>
                 </Grid>
             </Grid>
         </StackPanel>

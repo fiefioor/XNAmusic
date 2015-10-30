@@ -37,7 +37,8 @@ namespace XNAmusic
                         foreach (Album item in a.Albums)
                         {
                             albums.Add(new AlbumModel(item.Name, item.GetThumbnail()));
-                        }                       
+                        }
+                        break;                    
                     }
                 }
                 AlbumSelector.ItemsSource = albums;
