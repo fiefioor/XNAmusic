@@ -12,7 +12,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="Portrait" Orientation="Landscape"
     shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -60,7 +60,8 @@
             <!--Panorama item three-->
             <phone:PanoramaItem Header="Videos">
                 <Grid>
-                    <ListBox x:Name="movieslist" />
+                    <ListBox x:Name="movieslist" 
+                             FontSize="{StaticResource PhoneFontSizeLarge}" SelectionChanged="movieslist_SelectionChanged"/>
                 </Grid>
             </phone:PanoramaItem>
 

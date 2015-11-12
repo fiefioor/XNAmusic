@@ -120,6 +120,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="VideoPlay.xaml.cs">
+      <DependentUpon>VideoPlay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="XNAFrameworkDispatcherService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PlaySongs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VideoPlay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

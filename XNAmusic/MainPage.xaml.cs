@@ -158,12 +158,24 @@ namespace XNAmusic
             IReadOnlyList<StorageFolder> folderList = await videosFolder.GetFoldersAsync();
 
             var count = fileList.Count + folderList.Count;
-
+            movieslist.Items.Clear();
             foreach (StorageFile file in fileList)
             {
                 movieslist.Items.Add(file.Name);
             }
 
+        }
+
+        private void movieslist_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+            {
+                var selecedItem = e.AddedItems[0] as string;
+                if (null != selecedItem) // prevents errors if casting fails
+                {
+                    NavigationService.Navigate(new Uri(string.Format("/VideoPlay.xaml?Video={0}", selecedItem), UriKind.Relative));
+                }
+            }
         }
     }
 }
