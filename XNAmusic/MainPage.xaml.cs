@@ -149,5 +149,21 @@ namespace XNAmusic
                 MessageBox.Show(e1.ToString());
             }
         }
+
+        private async void refresh_Click(object sender, EventArgs e)
+        {
+            StorageFolder videosFolder = KnownFolders.VideosLibrary;
+
+            IReadOnlyList<StorageFile> fileList = await videosFolder.GetFilesAsync();
+            IReadOnlyList<StorageFolder> folderList = await videosFolder.GetFoldersAsync();
+
+            var count = fileList.Count + folderList.Count;
+
+            foreach (StorageFile file in fileList)
+            {
+                movieslist.Items.Add(file.Name);
+            }
+
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2014/deployment" AppPlatformVersion="8.1">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{a9bcbe75-ed6f-45b8-bc2e-ac5d7ffc60d3}" Title="XNAmusic" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="XNAmusic author" Description="Sample description" SDOptOut="false" BackUpOptOut="false" Publisher="XNAmusic" PublisherID="{24ec996f-0dbd-414b-8885-1ec99b08423d}">
+  <App xmlns="" ProductID="{a9bcbe75-ed6f-45b8-bc2e-ac5d7ffc60d3}" Title="XNAmusic" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="fiefioor" Description="Media managment application" SDOptOut="false" BackUpOptOut="false" Publisher="XNAmusic" PublisherID="{24ec996f-0dbd-414b-8885-1ec99b08423d}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />

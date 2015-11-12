@@ -108,6 +108,9 @@
     <Compile Include="Models\AlbumModel.cs" />
     <Compile Include="Models\GalleryModel.cs" />
     <Compile Include="Models\PictureModel.cs" />
+    <Compile Include="PicturePage.xaml.cs">
+      <DependentUpon>PicturePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlaySongs.xaml.cs">
       <DependentUpon>PlaySongs.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PicturePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlaySongs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,8 +161,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\1338409397350.jpg" />
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\AppBarIcons\question.png" />
+    <Content Include="Assets\AppBarIcons\refresh.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

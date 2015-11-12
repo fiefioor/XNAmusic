@@ -59,7 +59,9 @@
 
             <!--Panorama item three-->
             <phone:PanoramaItem Header="Videos">
-                <Grid/>
+                <Grid>
+                    <ListBox x:Name="movieslist" />
+                </Grid>
             </phone:PanoramaItem>
 
             <!--Panorama item four-->
@@ -76,6 +78,7 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
             <shell:ApplicationBarIconButton IconUri="/Assets/AppBarIcons/question.png" Text="About" Click="ApplicationBarIconButton_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBarIcons/refresh.png" Text="Refresh Videos" Click="refresh_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
