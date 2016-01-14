@@ -14,7 +14,7 @@ namespace XNAmusic
 {
     public partial class AlbumPage : PhoneApplicationPage
     {
-        MediaLibrary ml = null;
+        //MediaLibrary ml = null;
         List<AlbumModel> albums = null;
         public AlbumPage()
         {
@@ -23,7 +23,10 @@ namespace XNAmusic
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            ml = new MediaLibrary();
+            MediaLibrary ml = new MediaLibrary();
+            List<Song> songlist = ml.Songs.ToList();
+
+
             albums = new List<AlbumModel>();
             String artist_name = null;
             if (NavigationContext.QueryString.TryGetValue("Artist", out artist_name))
